@@ -10,7 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class Book {
   _id!: String;
   name!: String;
-  price!: String;
+  price!: Number;
   description!: String;
 }
 
