@@ -53,7 +53,7 @@ export class CrudService {
 
   // Update book
   UpdateBook(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/books/${id}/edit`;
+    let API_URL = `${this.REST_API}/books/${id}`;
     return this.httpClient
       .put(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
@@ -61,7 +61,7 @@ export class CrudService {
 
   // Delete
   DeleteBook(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/books/${id}/delete`;
+    let API_URL = `${this.REST_API}/books/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));

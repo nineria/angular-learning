@@ -38,7 +38,7 @@ bookRoute.route("/books/:id").get((req, res) => {
 });
 
 // Update book
-bookRoute.route("/books/:id/edit").put((req, res, next) => {
+bookRoute.route("/books/:id").put((req, res, next) => {
   Book.findByIdAndUpdate(
     req.params.id,
     {
@@ -56,7 +56,7 @@ bookRoute.route("/books/:id/edit").put((req, res, next) => {
 });
 
 // Delete book
-bookRoute.route("/books/:id/delete").delete((req, res, next) => {
+bookRoute.route("/books/:id").delete((req, res, next) => {
   Book.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
