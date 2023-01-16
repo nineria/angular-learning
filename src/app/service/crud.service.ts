@@ -4,11 +4,9 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
 export class Book {
   _id!: String;
   name!: String;
@@ -16,12 +14,15 @@ export class Book {
   description!: String;
 }
 
+@Injectable({
+  providedIn: 'root',
+})
 export class CrudService {
   // Node.js API
-  REST_API = 'http://localhost:8000/api';
+  REST_API: string = 'http://localhost:8000/api';
 
   // http header
-  httpHeaders = new HttpHeaders().set('Content-Type', 'Application/json');
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private httpClient: HttpClient) {}
 
@@ -34,7 +35,7 @@ export class CrudService {
   }
 
   // Get all book(s)
-  GetBooks(): Observable<any> {
+  GetBooks() {
     return this.httpClient.get(`${this.REST_API}`);
   }
 
@@ -69,12 +70,11 @@ export class CrudService {
   // Handle error
   handleError(error: HttpErrorResponse) {
     let errorMsg = '';
-    if (error.error instanceof ErrorEvent) {
-      // Handle client error
-      errorMsg = error.error.message;
-      // Handle server error
-      errorMsg = `Error code: ${error.status}\nMessage: ${error.message}`;
-    }
+    // Handle client error
+    if (error.error instanceof ErrorEvent) errorMsg = error.error.message;
+    // Handle server error
+    else errorMsg = `Error code: ${error.status}\nMessage: ${error.message}`;
+
     console.log(errorMsg);
 
     return throwError(errorMsg);
