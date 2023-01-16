@@ -8,10 +8,6 @@ import { CrudService } from 'src/app/service/crud.service';
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.css'],
 })
-<<<<<<< HEAD
-export class AddBookComponent {
-  
-=======
 export class AddBookComponent implements OnInit {
   bookForm: FormGroup;
 
@@ -40,5 +36,4 @@ export class AddBookComponent implements OnInit {
   //     );
   //   });
   // }
->>>>>>> 5331620a640e7e91c03998ccf3d217e645b452f4
 }
