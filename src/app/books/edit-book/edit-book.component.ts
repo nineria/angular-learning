@@ -51,7 +51,6 @@ export class EditBookComponent implements OnInit {
       this.crudService
         .UpdateBook(this.bookId, this.bookUpdateForm.value)
         .subscribe((res) => {
-          alert('Data Updated');
           this.ngZone.run(() => {
             this.router.navigateByUrl('/books');
           });
