@@ -27,14 +27,16 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): any {
-    this.crudService.AddBook(this.bookForm.value).subscribe(() => {
-      console.log('Data added successfully');
-      this.ngZone.run(
-        () => this.router.navigateByUrl('/view-book'),
-        (error: any) => {
-          console.log(error);
-        }
-      );
-    });
+    if (this.bookForm.valid) {
+      this.crudService.AddBook(this.bookForm.value).subscribe(() => {
+        console.log('Data added successfully');
+        this.ngZone.run(
+          () => this.router.navigateByUrl('/view-book'),
+          (error: any) => {
+            console.log(error);
+          }
+        );
+      });
+    }
   }
 }
