@@ -1,6 +1,6 @@
 import { Component, Input, NgZone, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from '../../service/crud.service';
 @Component({
   selector: 'app-edit',
@@ -53,7 +53,7 @@ export class EditBookComponent implements OnInit {
         .subscribe((res) => {
           alert('Data Updated');
           this.ngZone.run(() => {
-            this.router.navigateByUrl('/view-book');
+            this.router.navigateByUrl('/books');
           });
         });
     }
