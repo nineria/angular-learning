@@ -31,7 +31,7 @@ export class AddBookComponent implements OnInit {
       this.crudService.AddBook(this.bookForm.value).subscribe(() => {
         console.log('Data added successfully');
         this.ngZone.run(
-          () => this.router.navigateByUrl('/view-book'),
+          () => this.router.navigateByUrl('/books'),
           (error: any) => {
             console.log(error);
           }

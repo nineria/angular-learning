@@ -1,7 +1,5 @@
-<div class="max-w-[1024px] mx-auto mt-3 ">
-  <div
-    class="bg-sky-500 pt-2 pb-2 mb-3 border-b"
-  >
+<div class="max-w-[1024px] mx-auto mt-3">
+  <div class="bg-sky-500 pt-2 pb-2 mb-3 border-b">
     <h1 class="text-center text-3xl">Book list</h1>
   </div>
   <div class="w-full flex justify-center">
@@ -17,17 +15,17 @@
       </thead>
       <tbody>
         <tr *ngFor="let book of Books; let i = index">
-          <th scope="row">{{ i+1 }}</th>
+          <th scope="row">{{ i + 1 }}</th>
           <td>{{ book.name }}</td>
           <td>{{ book.price }}</td>
           <td>{{ book.description }}</td>
           <td class="text-center">
-            <button
+            <a
               class="btn btn-sm btn-primary"
               routerLink="/edit-book/{{ book._id }}"
             >
               Edit
-            </button>
+            </a>
             <button class="btn btn-sm btn-danger" (click)="delete(book._id, i)">
               Delete
             </button>
