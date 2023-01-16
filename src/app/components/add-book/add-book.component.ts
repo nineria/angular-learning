@@ -14,7 +14,8 @@ export class AddBookComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
-    private ngZone: NgZone // private crudService: CrudService
+    private ngZone: NgZone,
+    private crudService: CrudService
   ) {
     this.bookForm = this.formBuilder.group({
       name: [''],
@@ -25,15 +26,15 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // onSubmit(): any {
-  //   this.crudService.AddBook(this.bookForm.value).subscribe(() => {
-  //     console.log('Data added successfully');
-  //     this.ngZone.run(
-  //       () => this.router.navigateByUrl('/book-list'),
-  //       (error: any) => {
-  //         console.log(error);
-  //       }
-  //     );
-  //   });
-  // }
+  onSubmit(): any {
+    this.crudService.AddBook(this.bookForm.value).subscribe(() => {
+      console.log('Data added successfully');
+      this.ngZone.run(
+        () => this.router.navigateByUrl('/view-book'),
+        (error: any) => {
+          console.log(error);
+        }
+      );
+    });
+  }
 }
