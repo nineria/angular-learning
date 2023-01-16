@@ -1,16 +1,22 @@
 <nav class="w-full bg-[#222] h-[80px] text-white">
-  <div class="flex justify-between h-full items-center p-4">
-    <a class="font-bold text-3xl text-sky-500 ml-5">ANGULAR</a>
-    <ul class="flex gap-10 mr-5 h-full items-center">
-      <li
-        class="list-none hover:bg-[#000] h-full items-center p-2 pt-3 rounded-md"
-      >
-        <a class="" routerLinkActive="active" routerLink="/books">Show Books</a>
+  <div class="max-w-[1024px] mx-auto flex justify-between h-full items-center">
+    <a class="font-bold text-3xl text-sky-500">ANGULAR</a>
+    <ul class="flex h-full items-center gap-2">
+      <li class="list-none">
+        <a
+          class="hover:bg-[#000] p-4 rounded-md"
+          routerLinkActive="active"
+          routerLink="/books"
+          >Show Books</a
+        >
       </li>
-      <li
-        class="list-none hover:bg-[#000] h-full items-center p-2 pt-3 rounded-md"
-      >
-        <a routerLinkActive="active" routerLink="/books/add">Add Books</a>
+      <li class="list-none">
+        <a
+          class="hover:bg-[#000] p-4 rounded-md"
+          routerLinkActive="active"
+          routerLink="/books/add"
+          >Add Books</a
+        >
       </li>
     </ul>
   </div>
