@@ -23,18 +23,18 @@ export class EditBookComponent implements OnInit {
   ) {
     this.bookId = ActivatedRoute.snapshot.paramMap.get('id');
 
+    this.crudService.GetBook(this.bookId).subscribe((res) => {
+      this.bookUpdateForm.setValue({
+        name: res['name'],
+        price: res['price'],
+        description: res['description'],
+      });
+    });
+
     this.bookUpdateForm = this.formBuilder.group({
       name: [''],
       price: [''],
       description: [''],
-    });
-
-    this.crudService.GetBook(this.bookId).subscribe((res) => {
-      this.bookUpdateForm.setValue({
-        name: "res['name']",
-        price: "res['price']",
-        description: "res['description']",
-      });
     });
   }
 
@@ -46,9 +46,16 @@ export class EditBookComponent implements OnInit {
   // }
 
   onSubmit() {
-    // console.log('book :', this.bookForm.get('name')?.value);
+    console.log('book :', this.bookUpdateForm.get('name')?.value);
     if (this.bookUpdateForm.valid) {
-      this.crudService.UpdateBook(this.bookId, this.bookUpdateForm.value);
+      this.crudService
+        .UpdateBook(this.bookId, this.bookUpdateForm.value)
+        .subscribe((res) => {
+          alert('Data Updated');
+          this.ngZone.run(() => {
+            this.router.navigateByUrl('/view-book');
+          });
+        });
     }
   }
 }
