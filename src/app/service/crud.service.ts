@@ -4,7 +4,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class Book {
 
 export class CrudService {
   // Node.js API
-  REST_API = 'http://locahost:8000/api';
+  REST_API = 'http://localhost:8000/api';
 
   // http header
   httpHeaders = new HttpHeaders().set('Content-Type', 'Application/json');
@@ -26,7 +26,7 @@ export class CrudService {
   constructor(private httpClient: HttpClient) {}
 
   // Add new book
-  AddBook(data: Book) {
+  AddBook(data: Book): Observable<any> {
     let API_URL = `${this.REST_API}/add-book`;
     return this.httpClient
       .post(API_URL, data)
@@ -34,12 +34,12 @@ export class CrudService {
   }
 
   // Get all book(s)
-  GetBooks() {
+  GetBooks(): Observable<any> {
     return this.httpClient.get(`${this.REST_API}`);
   }
 
   // Get a book
-  GetBook(id: any) {
+  GetBook(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/read-book/${id}`;
 
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
@@ -51,7 +51,7 @@ export class CrudService {
   }
 
   // Update book
-  UpdateBook(id: any, data: any) {
+  UpdateBook(id: any, data: any): Observable<any> {
     let API_URL = `${this.REST_API}/update-book/${id}`;
     return this.httpClient
       .put(API_URL, data, { headers: this.httpHeaders })
@@ -59,7 +59,7 @@ export class CrudService {
   }
 
   // Delete
-  DeleteBook(id: any) {
+  DeleteBook(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/delete-book/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
