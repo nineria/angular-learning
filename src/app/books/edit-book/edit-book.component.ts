@@ -2,6 +2,7 @@ import { Component, Input, NgZone, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from '../../service/crud.service';
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit-book.component.html',
@@ -22,7 +23,6 @@ export class EditBookComponent implements OnInit {
     private ActivatedRoute: ActivatedRoute
   ) {
     this.bookId = ActivatedRoute.snapshot.paramMap.get('id');
-
     this.crudService.GetBook(this.bookId).subscribe((res) => {
       this.bookUpdateForm.setValue({
         name: res['name'],
