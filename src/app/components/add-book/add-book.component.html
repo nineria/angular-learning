@@ -1,7 +1,7 @@
 <div class="container max-w-[500px] mx-auto">
-  <p class="bg-yellow-400 rounded-t-md mt-3 p-3">Add New Book</p>
+  <p class="bg-[#222] text-white rounded-t-md mt-3 p-3">Add New Book</p>
   <div class="p-3 rounded-b-md shadow-md">
-    <form class="flex flex-col gap-4">
+    <form [formGroup]="bookForm" class="flex flex-col gap-4">
       <div class="flex flex-col">
         <label for="name">Name</label>
         <input
