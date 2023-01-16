@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CrudService } from '../../service/crud.service';
@@ -10,6 +10,9 @@ import { CrudService } from '../../service/crud.service';
 export class EditBookComponent implements OnInit {
   bookUpdateForm: FormGroup;
   bookId: any;
+  @Input() nameInput: string | undefined;
+  @Input() priceInput: string | undefined;
+  @Input() descriptionInput: string | undefined;
 
   constructor(
     private crudService: CrudService,
@@ -20,24 +23,29 @@ export class EditBookComponent implements OnInit {
   ) {
     this.bookId = ActivatedRoute.snapshot.paramMap.get('id');
 
-    this.crudService.GetBook(this.bookId).subscribe((res) => {
-      this.bookUpdateForm.setValue({
-        name: res['name'],
-        price: res['price'],
-        description: res['description'],
-      });
-    });
-
     this.bookUpdateForm = this.formBuilder.group({
       name: [''],
       price: [''],
       description: [''],
     });
+
+    this.crudService.GetBook(this.bookId).subscribe((res) => {
+      this.bookUpdateForm.setValue({
+        name: "res['name']",
+        price: "res['price']",
+        description: "res['description']",
+      });
+    });
   }
 
   ngOnInit() {}
 
-  handleEditBook() {
+  // handleInputChange(newVal: string) {
+  //   this.nameInput = newVal;
+  //   console.log('input: ', this.nameInput);
+  // }
+
+  onSubmit() {
     // console.log('book :', this.bookForm.get('name')?.value);
     if (this.bookUpdateForm.valid) {
       this.crudService.UpdateBook(this.bookId, this.bookUpdateForm.value);
