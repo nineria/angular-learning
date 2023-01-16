@@ -14,7 +14,8 @@ import { ViewBookComponent } from './components/view-book/view-book.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AddBookComponent
+    AddBookComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,7 @@ import { ViewBookComponent } from './components/view-book/view-book.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: EditComponent
+        component: EditBookComponent
       }
     ])
   ],
