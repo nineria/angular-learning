@@ -7,16 +7,25 @@ import { AppComponent } from './app.component';
 import { ViewBooksComponent } from './components/view-books/view-books.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
-import { EditComponent } from './components/edit/edit.component';
+
+import { EditBookComponent } from './components/edit-book/edit-book.component';
+import { ViewBookComponent } from './components/view-book/view-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewBooksComponent,
-    NavbarComponent,
-    AddBookComponent,
+    AddBookComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: EditComponent
+      }
+    ])
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
