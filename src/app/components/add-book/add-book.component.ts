@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent {
-
+  
 }
