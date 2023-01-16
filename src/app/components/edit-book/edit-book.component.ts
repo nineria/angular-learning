@@ -38,6 +38,9 @@ export class EditBookComponent implements OnInit {
   ngOnInit() {}
 
   handleEditBook() {
-    this.crudService.UpdateBook(this.bookId, this.bookUpdateForm.value);
+    // console.log('book :', this.bookForm.get('name')?.value);
+    if (this.bookUpdateForm.valid) {
+      this.crudService.UpdateBook(this.bookId, this.bookUpdateForm.value);
+    }
   }
 }
