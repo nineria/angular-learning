@@ -1,5 +1,7 @@
-<div class="container">
-  <p>Products List</p>
+<div class="mx-auto max-w-[1024px] mt-3">
+  <div>
+    <h1>Products List</h1>
+  </div>
   <ul>
     <li *ngFor="let product of products; let i = index">
       <a (click)="navigateToProduct('shop/products', product.id)">
