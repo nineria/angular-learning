@@ -1,4 +1,6 @@
 <div>
   <app-navbar/>
+  <h1>{{ text }}</h1>
+  <app-child (updateDataEvent)="updateData($event)"></app-child>
   <router-outlet></router-outlet>
 </div>
