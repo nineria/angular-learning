@@ -1,12 +1,28 @@
-<div class="mx-auto max-w-[1024px] mt-3">
-  <div>
-    <h1>Products List</h1>
+<div class="mx-auto max-w-[1024px] mt-3 shadow-md rounded-md">
+  <div class="p-2 bg-[#222] text-white rounded-t-md">
+    <h1>Products List // Nested Routes</h1>
   </div>
-  <ul>
-    <li *ngFor="let product of products; let i = index">
-      <a (click)="navigateToProduct('shop/products', product.id)">
-        {{ product.name }}
-      </a>
-    </li>
-  </ul>
+  <div class="p-2">
+    <ul>
+      <li *ngFor="let product of products; let i = index" class="my-2">
+        <a
+          class="cursor-pointer hover:opacity-75"
+          (click)="navigateToProduct('shop/products', product.id)"
+        >
+          - {{ product.name }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- <app-meter
+    [minLevel]="'My Min Level'"
+    [maxLevel]="'My max Level'"
+  ></app-meter> -->
 </div>
+
+<app-meter
+  minLevel="My Min Level"
+  maxLevel="My max Level"
+  (minChange)="doAppMinChange($event)"
+  (maxChange)="doAppMaxChange($event)"
+></app-meter>

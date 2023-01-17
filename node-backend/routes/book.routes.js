@@ -4,19 +4,8 @@ const app = express();
 const bookRoute = express.Router();
 let Book = require("../models/Book");
 
-// Add book
-bookRoute.route("/books/add").post((req, res, next) => {
-  Book.create(req.body, (error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
-    }
-  });
-});
-
 // Get all book
-bookRoute.route("/books").get((req, res) => {
+bookRoute.route("/books").get((req, res, next) => {
   Book.find((error, data) => {
     if (error) {
       return next(error);
@@ -29,6 +18,17 @@ bookRoute.route("/books").get((req, res) => {
 // Get book
 bookRoute.route("/books/:id").get((req, res, next) => {
   Book.findById(req.params.id, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Add book
+bookRoute.route("/books/add").post((req, res, next) => {
+  Book.create(req.body, (error, data) => {
     if (error) {
       return next(error);
     } else {

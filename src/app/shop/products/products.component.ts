@@ -21,4 +21,12 @@ export class ProductsComponent implements OnInit {
   navigateToProduct(url: any, id: any) {
     this.router.navigate([url, id]);
   }
+
+  doAppMinChange(value: number) {
+    console.log('minChange event: ', value);
+  }
+
+  doAppMaxChange(value: number) {
+    console.log('maxChange event: ', value);
+  }
 }

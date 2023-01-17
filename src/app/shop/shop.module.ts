@@ -6,6 +6,8 @@ import { OverviewComponent } from './overview/overview.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsComponent } from './products/products.component';
 import { ShopRoutingModule } from './shop-routing.module';
+import { MeterComponent } from './meter/meter.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { ShopRoutingModule } from './shop-routing.module';
     ProductComponent,
     OverviewComponent,
     DetailsComponent,
+    MeterComponent,
+    ActionBarComponent,
   ],
   imports: [CommonModule, ShopRoutingModule],
 })

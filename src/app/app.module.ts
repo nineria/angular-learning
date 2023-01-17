@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

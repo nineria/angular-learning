@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  UrlSegment,
+  UrlSegmentGroup,
+  UrlTree,
+} from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -8,11 +14,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   productId: string = '';
+  customData: string = '';
+  constructor(private route: ActivatedRoute, private router: Router) {
+    // UrlSegment
+    const tree: UrlTree = router.parseUrl(router.url);
+    const g: UrlSegmentGroup = tree.root.children['primary'];
+    const s: UrlSegment[] = g.segments;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+    this.productId = s[2].path;
+  }
 
   ngOnInit(): void {
-    this.productId = this.route.snapshot.params['id'];
+    // Get custom data
+    this.customData = this.route.snapshot.data['title'];
   }
 
   // c = component

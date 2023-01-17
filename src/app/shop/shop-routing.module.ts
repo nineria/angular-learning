@@ -10,6 +10,9 @@ const routes: Routes = [
   {
     path: 'products/:id',
     component: ProductComponent,
+    data: {
+      title: 'Products ID',
+    },
     children: [
       {
         path: 'overview',
