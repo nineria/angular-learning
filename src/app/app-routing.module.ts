@@ -8,6 +8,10 @@ const routes: Routes = [
       import('./books/books.module').then((m) => m.BooksModule),
   },
   {
+    path: 'shop',
+    loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule),
+  },
+  {
     path: '',
     redirectTo: 'books',
     pathMatch: 'full',

@@ -27,7 +27,7 @@ bookRoute.route("/books").get((req, res) => {
 });
 
 // Get book
-bookRoute.route("/books/:id").get((req, res) => {
+bookRoute.route("/books/:id").get((req, res, next) => {
   Book.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error);

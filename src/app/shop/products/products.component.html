@@ -1,0 +1,10 @@
+<div class="container">
+  <p>Products List</p>
+  <ul>
+    <li *ngFor="let product of products; let i = index">
+      <a (click)="navigateToProduct('shop/products', product.id)">
+        {{ product.name }}
+      </a>
+    </li>
+  </ul>
+</div>
