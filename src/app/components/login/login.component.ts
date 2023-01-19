@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
       )
       .subscribe((res) => {
         console.log('Complete');
+        this.router.navigate(['/books']);
       });
     // this.router.navigate(['/books']);
   }

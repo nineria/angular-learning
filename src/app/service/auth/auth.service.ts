@@ -7,6 +7,7 @@ import { ApiService } from '../api.service';
   providedIn: 'root',
 })
 export class AuthService {
+  user: string | null;
   isLoggedIn = false;
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
@@ -14,17 +15,21 @@ export class AuthService {
   constructor(private apiService: ApiService) {
     // const token = localStorage.getItem('profanis_auth');
     // this._isLoggedIn$.next(!!token);
+    this.user = localStorage.getItem('user');
   }
 
   loginAuth(username: string, password: string) {
-    return this.apiService.loginApi(username, password).pipe(
+    return this.apiService.loginApi(username, password, this.user).pipe(
       tap((response: any) => {
         console.log('res: ', response.token);
+        this.user = response.token;
+        localStorage.setItem('user', response.token);
       })
     );
   }
 
   isAuthenticated() {
-    return this.isLoggedIn;
+    console.log('user: ', this.user);
+    return this.user ? true : false;
   }
 }

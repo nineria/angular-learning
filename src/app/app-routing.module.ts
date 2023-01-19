@@ -10,12 +10,13 @@ const routes: Routes = [
   },
   {
     path: 'books',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./books/books.module').then((m) => m.BooksModule),
   },
   {
     path: 'marketplace',
-
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./marketplace/marketplace.module').then(
         (m) => m.marketplaceModule

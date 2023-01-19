@@ -8,13 +8,13 @@ import { Observable, catchError, throwError } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  loginApi(username: string, password: string) {
-    console.log('accressss');
+  loginApi(
+    username: string,
+    password: string,
+    token: string | null | undefined
+  ) {
     return this.http
-      .post('http://localhost:4008/register', {
-        username,
-        password,
-      })
+      .post('http://localhost:4008/login', { username, password })
       .pipe(catchError(this.handleError));
   }
 

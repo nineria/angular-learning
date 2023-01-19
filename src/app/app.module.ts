@@ -22,7 +22,7 @@ import { AuthGuard } from './service/authGuard/auth.guard';
     ReactiveFormsModule,
     RouterModule,
   ],
-  providers: [FakeBackendInterceptor],
+  providers: [FakeBackendInterceptor, AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
