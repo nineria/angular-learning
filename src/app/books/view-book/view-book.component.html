@@ -42,3 +42,19 @@
     </table>
   </div>
 </div>
+
+<div class="mt-10 flex items-center justify-center">
+  \
+
+  <div
+    class="flex items-center justify-between px-[2rem] w-[250px] h-[90px] relative transition-all border-red-900 text-black overflow-hidden"
+    style="border: 1px solid red"
+  >
+    <div
+      class="w-[100%] h-[100%] transition-all duration-500 bg-yellow-800 absolute top-0 left-0"
+      [ngClass]="active ? 'active' : 'in-active'"
+    ></div>
+    <button (click)="handleActive()" class="z-10">benz</button>
+    <button (click)="handleActive()" class="z-10">Boat</button>
+  </div>
+</div>

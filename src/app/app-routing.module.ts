@@ -1,15 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './service/authGuard/auth.guard';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   {
     path: 'books',
     loadChildren: () =>
       import('./books/books.module').then((m) => m.BooksModule),
   },
   {
+    path: 'marketplace',
+
+    loadChildren: () =>
+      import('./marketplace/marketplace.module').then(
+        (m) => m.marketplaceModule
+      ),
+  },
+  {
     path: '',
-    redirectTo: 'books',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
 ];

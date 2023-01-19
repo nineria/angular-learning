@@ -1,0 +1,7 @@
+.active {
+  transform: translateX(-50%);
+}
+
+.in-active {
+  transform: translateX(50%);
+}

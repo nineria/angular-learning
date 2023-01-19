@@ -1,0 +1,31 @@
+<section class="mt-10">
+  <form
+    class="flex flex-col items-center justify-center max-w-[500px] mx-auto w-full bg-slate-500 p-10"
+    [formGroup]="authForm"
+    (ngSubmit)="onSubmit()"
+    ngNativeValidate
+  >
+    <p>login works!</p>
+    <span class="flex justify-center items-center mt-3"
+      ><p>username:</p>
+      <input
+        class="bg-black outline-dotted text-white"
+        type="text"
+        formControlName="username"
+        required
+        placeholder="Enter username"
+    /></span>
+    <span class="flex justify-center items-center mt-3"
+      ><p>password:</p>
+      <input
+        class="bg-black outline-dotted text-white"
+        type="text"
+        formControlName="password"
+        required
+        placeholder="Enter username"
+    /></span>
+    <button class="mt-5 bg-slate-200 text-black rounded p-2" type="submit">
+      login
+    </button>
+  </form>
+</section>

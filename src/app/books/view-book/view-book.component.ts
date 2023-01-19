@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/service/crud.service';
-
 @Component({
   selector: 'app-view-book',
   templateUrl: './view-book.component.html',
-  styleUrls: ['./view-book.component.css']
+  styleUrls: ['./view-book.component.css'],
 })
-
 export class ViewBookComponent implements OnInit {
   Books: any = [];
+  active: boolean = false;
   constructor(private crudService: CrudService) {}
 
   ngOnInit(): void {
@@ -17,6 +16,10 @@ export class ViewBookComponent implements OnInit {
       this.Books = res;
     });
   }
+
+  handleActive = () => {
+    this.active = !this.active;
+  };
 
   delete(id: any, i: any) {
     console.log(id);

@@ -1,0 +1,31 @@
+<section class="max-w-[1024px] mx-auto mt-8 px-10">
+  <div class="flex items-start w-full flex-col">
+    <span class="text-left flex justify-start items-center flex-col">
+      <h1 class="font-bold mb-1">Marketplace</h1>
+      <hr class="w-[13rem] font-bold border-[2px]" />
+    </span>
+
+    <span class="mt-8">
+      <div
+        class="rounded-full w-[4rem] h-[4rem] bg-orange-500 cursor-pointer flex items-center relative"
+        (click)="hiddenfileinput.click()"
+      >
+        <input type="file" #hiddenfileinput style="display: none" />
+        <i
+          class="fa-solid fa-pen-to-square absolute right-3 bottom-4 text-white opacity-60"
+        ></i></div
+    ></span>
+
+    <div class="grid grid-cols-2 w-full mt-10">
+      <app-filter-marketplace></app-filter-marketplace>
+      <ul *ngFor="let book of books">
+        <li
+          class="p-6 bg-[#222] text-white"
+          (click)="handleBooks(book.idBooks)"
+        >
+          <a>{{ book.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
