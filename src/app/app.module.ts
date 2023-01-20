@@ -13,7 +13,7 @@ import { AuthService } from './service/auth/auth.service';
 import { AuthGuard } from './service/authGuard/auth.guard';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,7 +1,7 @@
-<div class="max-w-[1024px] mx-auto">
-  <div class="flex flex-col gap-3 mt-3">
-    <p>delivery current status: {{ observableStatus }}</p>
+<app-main>
+  <ng-container content>
+    <p>Delivery current status: {{ observableStatus }}</p>
     <p>Subject status: {{ subjectStatus }}</p>
-    <p>Behavior Subject status: {{ behaviorSubjectStatus }}</p>
-  </div>
-</div>
+    <p>Behavior Subject status: {{ behaviorSubjectStatus }}%</p>
+  </ng-container>
+</app-main>

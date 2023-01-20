@@ -22,22 +22,27 @@ export class DeliveryComponent {
     this.service.subjectStatus.subscribe((n) => (this.subjectStatus = n));
 
     setTimeout(() => {
-      this.service.subjectStatus.next(25);
+      this.service.subjectStatus.next('Testing...');
     }, 2000);
     setTimeout(() => {
-      this.service.subjectStatus.next(75);
+      this.service.subjectStatus.next('Pass ✅');
     }, 4000);
-
+    //
+    //
+    //
     // --- BehaviorSubject - have initial value ---
     this.service.behaviorSubjectStatus.subscribe(
       (n) => (this.behaviorSubjectStatus = n)
     );
     setTimeout(() => {
-      this.service.behaviorSubjectStatus.next('Testing...');
+      this.service.behaviorSubjectStatus.next(50);
     }, 2000);
     setTimeout(() => {
-      this.service.behaviorSubjectStatus.next('Pass');
+      this.service.behaviorSubjectStatus.next(75);
     }, 4000);
+    setTimeout(() => {
+      this.service.behaviorSubjectStatus.next(100);
+    }, 8000);
 
     // --- ReplaySubject ---
     this.service.replaySubject.subscribe((n) =>

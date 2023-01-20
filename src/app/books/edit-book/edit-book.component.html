@@ -1,52 +1,54 @@
-<div class="container max-w-[500px] mx-auto">
-  <h1 class="bg-[#222] text-white rounded-t-md mt-3 p-3">Update Book</h1>
-  <div class="p-3 rounded-b-md shadow-md">
-    <form
-      [formGroup]="bookUpdateForm"
-      (ngSubmit)="onSubmit()"
-      ngNativeValidate
-      class="flex flex-col gap-4"
-    >
-      <div class="flex flex-col">
-        <label for="name">Name</label>
-        <input
-          class="bg-transparent border-2 border-black"
-          type="text"
-          formControlName="name"
-          required
-        />
+<app-main>
+  <ng-container content>
+    <h1 class="bg-[#222] text-white rounded-t-md mt-3 p-3">Update Book</h1>
+    <div class="p-3 rounded-b-md shadow-md">
+      <form
+        [formGroup]="bookUpdateForm"
+        (ngSubmit)="onSubmit()"
+        ngNativeValidate
+        class="flex flex-col gap-4"
+      >
+        <div class="flex flex-col">
+          <label for="name">Name</label>
+          <input
+            class="bg-transparent border-2 border-black"
+            type="text"
+            formControlName="name"
+            required
+          />
 
-        <!--(ngModelChange)="handleInputChange($event)"-->
-      </div>
+          <!--(ngModelChange)="handleInputChange($event)"-->
+        </div>
 
-      <div class="flex flex-col">
-        <label for="price">Price</label>
-        <input
-          class="bg-transparent border-2 border-black"
-          type="text"
-          formControlName="price"
-          required
-        />
-      </div>
+        <div class="flex flex-col">
+          <label for="price">Price</label>
+          <input
+            class="bg-transparent border-2 border-black"
+            type="text"
+            formControlName="price"
+            required
+          />
+        </div>
 
-      <div class="flex flex-col">
-        <label for="description">Description</label>
-        <input
-          class="bg-transparent border-2 border-black"
-          type="text"
-          formControlName="description"
-          required
-        />
-      </div>
+        <div class="flex flex-col">
+          <label for="description">Description</label>
+          <input
+            class="bg-transparent border-2 border-black"
+            type="text"
+            formControlName="description"
+            required
+          />
+        </div>
 
-      <div class="flex flex-col flex-nowrap">
-        <button
-          *ngIf="bookUpdateForm.valid"
-          class="bg-blue-400 hover:bg-blue-500 rounded-md py-2"
-        >
-          Edit Book
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+        <div class="flex flex-col flex-nowrap">
+          <button
+            *ngIf="bookUpdateForm.valid"
+            class="bg-blue-400 hover:bg-blue-500 rounded-md py-2"
+          >
+            Edit Book
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</app-main>
