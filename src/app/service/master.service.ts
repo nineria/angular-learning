@@ -14,6 +14,7 @@ export class MasterService {
   // ReplaySubject
   replaySubject = new ReplaySubject<number>(3); // take 3 value from record
 
+  // Observable
   statusInfo() {
     const deliveryStatus = new Observable((item) => {
       item.next('Created order(s)');
